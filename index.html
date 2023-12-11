@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <form id="myForm" action="api.flit.com.br/submeterDados" method="post">
+        <div class="daddy">
+           <div class="base">
+            <label>Nome da loja</label>
+            <input type="text" id="Nome" name="Nome"  oninput="logValue(this)">
+        </div>
+        <div class="base">
+            <label>Endereço</label>
+            <input type="text" id="Endereço" name="Endereço"  oninput="logValue(this)">
+        </div>
+        <div class="base">
+            <label>Dias de funcionamento</label>
+            <input type="text" id="Dias" name="Dias"  oninput="logValue(this)">
+        </div>
+        <div class="base">
+            <label>Horário de funcionamento</label>
+            <input type="text" id="Horário" name="Horário"  oninput="logValue(this)">
+        </div>
+        <div class="base">
+         <input type="submit" id="Enviar" value="Enviar" > 
+           
+        </div>  
+        </div>
+       
+        
+        
+    </form>
+    <script src="eventos.js"></script>
+    <script>
+        function logValue(input) {
+            console.log(`Valor atualizado para ${input.id}: ${input.value}`);
+            saveValue(input);
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            loadSavedValues();
+        };
+        function saveBeforeSubmit() {
+            // Salvar os valores antes de enviar o formulário
+            saveValue(document.getElementById('Nome'));
+            saveValue(document.getElementById('Endereço'));
+            saveValue(document.getElementById('Dias'));
+            saveValue(document.getElementById('Horário'));
+        }
+        function saveValue (input) {
+            localStorage.setItem(input.id, input.value);
+        }
+        function loadSavedValues() {
+            document.getElementById('Nome').value = localStorage.getItem('Nome')
+            document.getElementById('Endereço').value = localStorage.getItem('Endereço')||'';
+            document.getElementById('Dias').value = localStorage.getItem('Dias')||'';
+            document.getElementById('Horário').value = localStorage.getItem('Horário')||'';
+        }
+    </script>
+</body>
+</html>

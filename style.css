@@ -1,0 +1,41 @@
+*{
+   padding: 0px;
+    margin: 0px; 
+    box-sizing: border-box;
+}
+
+
+input[type=text]:focus {
+    border-style: dashed;
+    border: solid 3px;
+    border-color: blueviolet;
+    
+}
+input {
+    
+    width: 150px;
+    display: block;
+}
+.base {
+    width: 150px;
+    float: left;
+   
+}
+.daddy {
+    width: 540px;
+}
+@media (max-width:799px) and (min-width:400px) {
+    input {
+        background-color: blue;
+        
+    }
+    .daddy {
+        width: 399px;
+    }
+    
+}
+@media (max-width:399px) {
+    .daddy {
+        width: 150px;
+    }
+}
